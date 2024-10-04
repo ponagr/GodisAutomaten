@@ -6,8 +6,10 @@ namespace GodisAutomaten
     {
         static void Main(string[] args)
         {
-            //Metod för att ta bort Godis.Antal vid menyval?
-            //If/else statement, om Godis.Antal > 0, gå till Metod, annars, skriv ut att Godis.Typ är slut för tillfället.
+            //Lägg till så att godis med antal 0 har röd text
+
+
+
             Godis Japp = new Godis { Typ = "Japp", Antal = 5 };
             Godis Daim = new Godis { Typ = "Daim", Antal = 5 };
             Godis Kola = new Godis { Typ = "Kola", Antal = 5 };
@@ -48,7 +50,7 @@ namespace GodisAutomaten
                 }
                 candyOptions[candyOptions.Length - 1] = "Gå tillbaka";
 
-                int choice = Menu.ShowMenu(candyOptions);
+                int choice = Menu.ShowMenu(candyOptions, godisAutomat);
                 if (choice == candyOptions.Length -1)
                 {
                     break;
@@ -121,7 +123,7 @@ namespace GodisAutomaten
                 }
                 candyOptions[candyOptions.Length - 1] = "Gå tillbaka";
 
-                int choice = Menu.ShowMenu(candyOptions);
+                int choice = Menu.ShowMenu(candyOptions, godisAutomat);
                 if (choice == candyOptions.Length -1)
                 {
                     break;
@@ -155,7 +157,7 @@ namespace GodisAutomaten
                 candyOptions[candyOptions.Length - 1] = "Gå tillbaka";
 
                 Console.WriteLine("Vilken lucka vill du byta godis ur?");
-                int choice = Menu.ShowMenu(candyOptions);
+                int choice = Menu.ShowMenu(candyOptions, godisAutomat);
                 if (choice == candyOptions.Length -1)
                 {
                     break;
@@ -226,7 +228,7 @@ namespace GodisAutomaten
         }
     }
 
-    class Godis     //Godis-klass med godistyp och antal för varje godistyp
+    public class Godis     //Godis-klass med godistyp och antal för varje godistyp
     {
         public string Typ { get; set; }
         public int Antal { get; set; }
