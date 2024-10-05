@@ -49,6 +49,7 @@ namespace GodisAutomaten
             }
             return -1;
         }
+        //ShowMenu Overload för att skriva ut godisAutomat-lista som menyval
         public static int ShowMenu(string[] options, Godis[] godisAutomat)
         {
             int menuChoice = 0;
@@ -70,12 +71,9 @@ namespace GodisAutomaten
                         Console.ForegroundColor = ConsoleColor.DarkCyan;    //För att HighLighta nuvarande menyval med pil och textfärg
                     }
 
-
                     if (i == menuChoice)
                     {
-                        //Console.ForegroundColor = ConsoleColor.DarkCyan;    //För att HighLighta nuvarande menyval med pil och textfärg
                         Console.WriteLine(options[i] + " <--");
-                        //Console.ResetColor();
                     }
                     else
                     {
@@ -104,52 +102,7 @@ namespace GodisAutomaten
                 }
             }
             return -1;
-        }
-        // public static int ShowMenu(Godis[] options)
-        // {
-        //     int menuChoice = 0;
-        //     bool runMenu = true;
-
-        //     while (runMenu)
-        //     {
-        //         Console.Clear();
-        //         Console.CursorVisible = false;
-
-        //         for (int i = 0; i < options.Length; i++)
-        //         {
-        //             if (i == menuChoice)
-        //             {
-        //                 Console.ForegroundColor = ConsoleColor.DarkCyan;    //För att HighLighta nuvarande menyval med pil och textfärg
-        //                 Console.WriteLine($"LUCKA NR: {i + 1}.   {options[i].Typ} ANTAL: {options[i].Antal} <--");
-        //                 Console.ResetColor();
-        //             }
-        //             else
-        //             {
-        //                 Console.WriteLine($"LUCKA NR: {i + 1}.   {options[i].Typ} ANTAL: {options[i].Antal}");  //Skriv ut resterande menyval utan pil och highlight
-        //             }
-        //         }
-
-        //         var keyPressed = Console.ReadKey();
-
-        //         if (keyPressed.Key == ConsoleKey.DownArrow && menuChoice < options.Length - 1)  //Om menyVal inte redan är på sista index , gå fram ett element
-        //         {
-        //             menuChoice++;
-        //         }
-        //         else if (keyPressed.Key == ConsoleKey.UpArrow && menuChoice > 0)    //Om menyVal inte redan är på index 0, gå tillbaka ett element
-        //         {
-        //             menuChoice--;
-        //         }
-        //         else if (keyPressed.Key == ConsoleKey.Enter)    //Välj nuvarande index
-        //         {
-        //             return menuChoice;
-        //         }
-        //         else if (keyPressed.Key == ConsoleKey.Backspace)    //Vid tryck på "Backspace", välj sista menyvalet(Avsluta/Gå Tillbaka)
-        //         {
-        //             return options.Length - 1;
-        //         }
-        //     }
-        //     return -1;
-        // }
+        }      
 
         //Meny-metoder som anropar olika metoder baserat på menyval, anropar först ShowMenu() för själva gränssnittet.
         public static void MainMenu()
@@ -166,7 +119,7 @@ namespace GodisAutomaten
                         //Lägg till metodanrop
                         break;
                     case 1:
-                        GodisAutomatHandler.AdminLogin();
+                        Admin.AdminLogin();
                         //Lägg till metodanrop
                         break;
                     case 2:
@@ -176,28 +129,6 @@ namespace GodisAutomaten
                 }
             }
         }
-        // public static void CandyMenu()
-        // {
-        //     bool runMenu = true;
-        //     while (runMenu)
-        //     {
-        //         //Lägg till så många menyval du vill i menuChoice-Array
-        //         int menuChoice = ShowMenu(GodisAutomatHandler.godisAutomat);
-        //         switch (menuChoice)
-        //         {
-        //             case 0:
-        //                 //Lägg till metodanrop
-        //                 break;
-        //             case 1:
-        //                 //Lägg till metodanrop
-        //                 break;
-        //             case 2:
-        //                 //Avsluta meny
-        //                 runMenu = false;
-        //                 break;
-        //         }
-        //     }
-        // }
 
         //Bekräfta Avsluta
         public static void ExitMenu()
